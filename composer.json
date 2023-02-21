@@ -1,0 +1,19 @@
+{
+    "name": "tuhm9/mvc",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tuanhm03",
+            "email": "tuanthanhcong2027@gmail.com"
+        }
+    ],
+    "require": {
+        "phroute/phroute": "^2.2",
+        "illuminate/events": "^10.0",
+        "eftec/bladeone": "^4.8"
+    }
+}

@@ -1,0 +1,98 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('content'); ?>
+ <div class="content__Management-above">
+ <div class="content__Management-above--title">
+ <h3>Thêm mới sản phẩm</h3>
+ </div>
+ <div class="content__Management-above--user">
+ <h3>Hoàng Mạnh Tuấn</h3>
+ </div>
+ </div>
+ <?php if(isset($_SESSION['success']) && isset($_GET['msg'])): ?>
+ <div class="information__Action">
+ <?php echo \htmlentities($_SESSION['success']??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ </div>
+ <?php endif; ?>
+ 
+ <div class="content__Management-feature">
+ <form action="<?php echo \htmlentities(route('form-add-product-post')??'', ENT_QUOTES, 'UTF-8', false); ?>" method="post" enctype="multipart/form-data">
+ <div class="group__input">
+ <p class="title">Tên sản phẩm:</p>
+ <input type="text" name="name">
+ <?php if(isset($_SESSION['errors']) && isset($_GET['msg'])): ?>
+ <p style="color: red; padding-top: 3px;">
+ <?php echo \htmlentities($_SESSION['errors']['name']??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ </p>
+ <?php endif; ?>
+ </div>
+
+ <div class="group__input">
+ <p class="title">Ảnh sản phẩm:</p>
+ <input type="file" name="image">
+ <?php if(isset($_SESSION['errors']) && isset($_GET['msg'])): ?>
+ <p style="color: red; padding-top: 3px;">
+ <?php echo \htmlentities($_SESSION['errors']['img']??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ </p>
+ <?php endif; ?>
+ </div>
+
+ <div class="group__input">
+ <p class="title">Giá sản phẩm:</p>
+ <input type="number" name="price">
+ <?php if(isset($_SESSION['errors']) && isset($_GET['msg'])): ?>
+ <p style="color: red; padding-top: 3px;">
+ <?php echo \htmlentities($_SESSION['errors']['price']??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ </p>
+ <?php endif; ?>
+ </div>
+ <div class="group__input">
+ <p class="title">Số lượng sản phẩm:</p>
+ <input type="number" name="amount">
+ <?php if(isset($_SESSION['errors']) && isset($_GET['msg'])): ?>
+ <p style="color: red; padding-top: 3px;">
+ <?php echo \htmlentities($_SESSION['errors']['amount']??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ </p>
+ <?php endif; ?>
+ </div>
+
+ <div class="group__input">
+ <p class="title">Ngày tạo:</p>
+ <input type="date" name="date">
+ <?php if(isset($_SESSION['errors']) && isset($_GET['msg'])): ?>
+ <p style="color: red; padding-top: 3px;">
+ <?php echo \htmlentities($_SESSION['errors']['date']??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ </p>
+ <?php endif; ?>
+ </div>
+
+ <div class="group__input">
+ <p class="title">Tên danh mục:</p>
+ <select name="category" id="">
+ <option value="" hidden>------ Danh mục sản phẩm ------</option>
+ <?php $__currentLoopData = $listCategory; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $item): $loop = $this->incrementLoopIndices();  ?>
+ <option value="<?php echo \htmlentities($item->id??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($item->name??'', ENT_QUOTES, 'UTF-8', false); ?></option>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </select>
+ <?php if(isset($_SESSION['errors']) && isset($_GET['msg'])): ?>
+ <p style="color: red; padding-top: 3px;">
+ <?php echo \htmlentities($_SESSION['errors']['category']??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ </p>
+ <?php endif; ?>
+ </div>
+
+ <div class="group__input group__input--btn">
+ <button type="submit" name="addProduct">Thêm sản phẩm</button>
+ <a href="<?php echo \htmlentities(route('list-product')??'', ENT_QUOTES, 'UTF-8', false); ?>">Danh sách</a>
+ </div>
+ </form>
+ </div>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layout.main'); } ?>

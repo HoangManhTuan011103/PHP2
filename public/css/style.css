@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+}
+body{
+    background-color: aliceblue;
+}
+.container{
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+}
+/* Navigation */
+.container>section.navigation{
+    background-color: #181515;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+section.navigation>.navigation__title>p{
+    letter-spacing: 0.5rem;
+    font-weight: 500;
+    font-size: 3rem;
+    font-style: italic;
+    color: #ffffff;
+    text-align: center;
+}
+section.navigation>.navigation__content>ul{
+    padding-top: 30px;
+}
+ul>li{
+    list-style: none;
+}
+section.navigation>.navigation__content>ul>li>a{
+    display: block;
+    color: #ffffff;
+    padding: 20px 130px 20px 10px;
+    font-weight: 500;
+    font-size: 20px;
+}
+section.navigation>.navigation__content>ul>li>a:hover{
+    background-color: rgb(102, 85, 85);
+    transition: all linear 0.3s;
+}
+
+/* Content Management */
+
+section.content__Management{
+    position: absolute;
+    left: 270px;
+    top: 20px;
+    right: 20px;
+}
+
+section.content__Management>.content__Management-above{
+    display: flex;
+    justify-content: space-between;
+}
+section.content__Management>.content__Management-feature{
+    padding-top: 50px;
+}
+section.content__Management>.content__Management-feature button{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+}
+.content__Management-feature>.content__Management-feature--table{
+    padding: 20px 0;
+}
+.content__Management-feature>.content__Management-feature--table>table{
+    border-collapse: collapse;
+}
+.content__Management-feature>.content__Management-feature--table>table th{
+    padding: 10px;
+}
+.content__Management-feature>.content__Management-feature--table>table td{
+    padding: 10px;
+    text-align: center;
+}
+/* Index */
+
+.content__Management-feature>h1{
+    text-align: center;
+    font-size: 42px;
+    font-style: italic;
+}
+
+/* Add category */
+.group__input{
+    padding-bottom: 15px;
+}
+.group__input>p{
+    padding-bottom: 5px;
+}
+.group__input.group__input--btn>a{
+    border: 2px solid #000000;
+    padding: 5px;
+    border-radius: 5px;
+}
+.group__input>input{
+    padding: 5px 10px;
+    width: 30%;
+    outline: none;
+}
+
+ /* Information */
+.information__Action{
+    width: 100%;
+    padding: 15px;
+    background-color: rgb(111, 194, 111);
+    color: #ffffff;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
