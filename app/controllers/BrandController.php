@@ -14,10 +14,17 @@
         public function formAdd() {
             $this->render('brand.add');
         }
+        public function formEdit($id) {
+            $brand = $this->brand->getDetailBrand($id);
+            $this->render('brand.edit',compact('brand'));
+        }
+        public function deleteBrand($id){
+            $this->brand->deleteBrand($id);
+            redirect('success','Bạn đã xóa thành công','list-brand');
+        }
         public function formAddPost(){
             if(isset($_POST['addBrand'])){
                 $errors = [];
-              
                 $name = $_POST['name'];
                 $amount = $_POST['amount'];
                 if(trim($name) === ""){
@@ -33,6 +40,27 @@
                     }
                 } else {
                     redirect('errors',$errors,'form-add-brand');
+                }
+            }
+        }
+        public function formEditPost($id){
+            if(isset($_POST['editBrand'])){
+                $errors = [];
+                $name = $_POST['name'];
+                $amount = $_POST['amount'];
+                if(trim($name) === ""){
+                    $errors['name'] = "Bạn phải điền tên thương hiệu";
+                }
+                if(trim($amount) === ""){
+                    $errors['amount'] = "Bạn phải điền số lượng sản phẩm";
+                }
+                if(!$errors){
+                    $result = $this->brand->upDateBrand($id,$name,$amount);
+                    if($result) {
+                        redirect('success','Bạn đã sửa thành công','list-brand');
+                    }
+                } else {
+                    redirect('errors',$errors,'list-brand');
                 }
             }
         }

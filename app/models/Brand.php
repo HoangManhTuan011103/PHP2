@@ -12,16 +12,21 @@
             $this->setQuery($sql);
             return $this->execute([$id, $name, $amount]);
         }
-        // public function deleteAccount($id) {
-        //     $sql = "DELETE FROM {$this->table} WHERE id=?";
-        //     $this->setQuery($sql);
-        //     return $this->execute([$id]);
-        // }
-        // public function getDetailAccount($id) {
-        //     $sql = "SELECT * FROM {$this->table} WHERE id=?";
-        //     $this->setQuery($sql);
-        //     return $this->loadRow([$id]);
-        // }
+        public function deleteBrand($id) {
+            $sql = "DELETE FROM {$this->table} WHERE id=?";
+            $this->setQuery($sql);
+            return $this->execute([$id]);
+        }
+        public function getDetailBrand($id) {
+            $sql = "SELECT * FROM {$this->table} WHERE id=?";
+            $this->setQuery($sql);
+            return $this->loadRow([$id]);
+        }
+        public function upDateBrand($id,$name,$amount_product) {
+            $sql = "UPDATE {$this->table} SET name=?, amount_product=? WHERE id=?";
+            $this->setQuery($sql);
+            return $this->execute([$name,$amount_product,$id]);
+        }
        
     }
 

@@ -54,6 +54,9 @@ $router->get('delete-account/{id}', [App\Controllers\AccountController::class, '
 $router->get('list-brand', [App\Controllers\BrandController::class, 'index']);
 $router->get('form-add-brand', [App\Controllers\BrandController::class, 'formAdd']);
 $router->post('form-add-brand-post', [App\Controllers\BrandController::class, 'formAddPost']);
+$router->get('delete-brand/{id}', [App\Controllers\BrandController::class, 'deleteBrand']);
+$router->get('form-edit-brand/{id}', [App\Controllers\BrandController::class, 'formEdit']);
+$router->post('form-edit-brand-post/{id}', [App\Controllers\BrandController::class, 'formEditPost']);
 
 
 

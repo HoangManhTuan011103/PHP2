@@ -33,11 +33,11 @@
                 @foreach ($list as $value)
                     <tr>
                         <td>{{$value->id}}</td>
-                        <td>{{$value->email}}</td>
+                        <td>{{$value->name}}</td>
                         <td>{{$value->amount_product}}</td>
                         <td>
-                            <a href="{{route('form-edit-category'.$value->id)}}"><button>Sửa</button></a>
-                            <a href="javascript:confirmDelete('delete-account/{{$value->id}}')"><button>Xóa</button></a>
+                            <a href="{{route('form-edit-brand/'.$value->id)}}"><button>Sửa</button></a>
+                            <a href="javascript:confirmDelete('delete-brand/{{$value->id}}')"><button>Xóa</button></a>
                         </td>
                     </tr>
                 @endforeach
